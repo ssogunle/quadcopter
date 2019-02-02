@@ -13644,7 +13644,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## TODO: Train your agent here.</span>
-<span class="kn">from</span> <span class="nn">agents.ddpg_agent</span> <span class="k">import</span> <span class="n">DDPG</span>
+<span class="kn">from</span> <span class="nn">agents.agent</span> <span class="k">import</span> <span class="n">DDPG</span>
 
 <span class="n">num_episodes</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1"># number of episodes</span>
 <span class="n">target_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">])</span>                          
@@ -13664,7 +13664,7 @@ div#notebook {
     <span class="n">state</span> <span class="o">=</span> <span class="n">ddpg_agent</span><span class="o">.</span><span class="n">reset_episode</span><span class="p">()</span> <span class="c1"># start a new episode</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>        
-        <span class="n">action</span> <span class="o">=</span> <span class="n">ddpg_agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> 
+        <span class="n">action</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> 
         <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span> <span class="o">=</span> <span class="n">ddpg_task</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
         <span class="n">ddpg_agent</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">next_state</span><span class="p">,</span> <span class="n">done</span><span class="p">)</span>
         <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
